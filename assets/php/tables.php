@@ -16,5 +16,7 @@ echo '</span>';
         </tr>
     </thead>
     <tbody>
+          <!-- 动态渲染表格内容 -->
+        <?php include('./tableBody.php')?>
     </tbody>
 </table>

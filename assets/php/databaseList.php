@@ -26,7 +26,7 @@
 
             <!-- 头部区域（可配合layui已有的水平导航） -->
             <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item"><a href="">查看日志</a></li>
+                <li class="layui-nav-item"><a href="<?php echo $_SERVER['PHP_SELF']  ?>?tablename=logs">查看日志</a></li>
                 <li class="layui-nav-item"><a href="../html/countDay.html">查看倒计时</a></li>
             </ul>
             <ul class="layui-nav layui-layout-right">

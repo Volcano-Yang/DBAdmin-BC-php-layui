@@ -1,6 +1,6 @@
 <?php
 
-$sql_tableHeader = "select * from tableName where `tablename` = " . $tablename .";";
+$sql_tableHeader = "select * from tableName where `tablename` = '" . $tablename ."';";
 $query_tableHeader = mysqli_query($conn, $sql_tableHeader);
 $tableHeaderStr = "";
 $tableHeaderArr = array();
@@ -16,7 +16,7 @@ if ($query_tableHeader)
 
     for($i=0;$i<count($tableHeaderArr); $i++)
     {
-        $Header .="<td>" . $tableHeaderArr[$i] ."</td>";
+        $Header .="<th>" . $tableHeaderArr[$i] ."</th>";
     }
     echo $Header;
 }
