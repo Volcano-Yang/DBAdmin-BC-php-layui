@@ -1,0 +1,23 @@
+{
+  "name": "databaseadmin",
+  "version": "1.0.0",
+  "description": "杨志发 数据库系统概论 实验三作业",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Volcano-Yang/databaseAdmin.git"
+  },
+  "author": "Volcano-Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Volcano-Yang/databaseAdmin/issues"
+  },
+  "homepage": "https://github.com/Volcano-Yang/databaseAdmin#readme",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "layui-src": "^2.5.5"
+  }
+}
