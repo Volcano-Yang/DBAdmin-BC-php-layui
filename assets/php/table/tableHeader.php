@@ -16,8 +16,10 @@ if ($query_tableHeader)
 
     for($i=0;$i<count($tableHeaderArr); $i++)
     {
-        $Header .="<th>" . $tableHeaderArr[$i] ."</th>";
+        $Header .="<th style='text-align: center;vertical-align: middle!important;'>" . $tableHeaderArr[$i] ."</th>";
     }
+    $Header .="<th style='text-align: center;vertical-align: middle!important;'>delete</th>";
+    $Header .="<th style='text-align: center;vertical-align: middle!important;'>updata</th>";
     echo $Header;
 }
 else{

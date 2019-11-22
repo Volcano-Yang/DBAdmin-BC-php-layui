@@ -12,11 +12,13 @@ echo '</span>';
     <thead>
         <tr>
             <!-- 动态渲染表头 -->
-            <?php include('./tableHeader.php') ?>
+            <?php include('tableHeader.php') ?>
         </tr>
     </thead>
     <tbody>
-          <!-- 动态渲染表格内容 -->
-        <?php include('./tableBody.php')?>
+        <!-- 动态渲染表格内容 -->
+        <?php include('tableBody.php') ?>
     </tbody>
 </table>
+
+<?php include('addbutton.php') ?>
