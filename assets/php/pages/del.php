@@ -17,10 +17,8 @@ if ($query_del){
     echo "</script>"; 
 }
 else{
-    echo "<script>";    
-    echo  "alert('删除失败');";
-    echo "window.location.href='./databaseList.php?tablename=".$deltable."';";
-    echo "</script>"; 
+    echo "Error: " . $sqlDel . "<br>" . mysqli_error($query_del);
+    echo "<a href='./databaseList.php?tablename=".$deltable."'>返回</a>";
 }
 
 ?>
