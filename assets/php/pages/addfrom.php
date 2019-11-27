@@ -28,7 +28,6 @@
 
         <form class="layui-form" action="./add.php?addtable=<?php echo $addtable ?>" method="post" name="myform">
 
-
            <!-- 用php根据每个表的结构，动态加载表单填写的内容项 -->
             <?php
             $sql_addtable = "select * from tableName where `tablename` = '" . $addtable . "';";

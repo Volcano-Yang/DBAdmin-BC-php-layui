@@ -1,4 +1,6 @@
 
+
+
 <?php
 
 include('../../../connet.php');
@@ -27,22 +29,20 @@ if ($query_addtable) {
         $sql_insert = "INSERT INTO ";
         $sql_insert .= $addtable;
         $sql_insert .= " (";
-
-
         for ($j = 0; $j < ($length - 1); $j++) {
             $sql_insert .= $addtableArr[$j] . ",";
         }
-
         $sql_insert .= $addtableArr[($length - 1)] . ") VALUES(";
         for ($k = 0; $k < ($length - 1); $k++) {
             $sql_insert .= "'" . $formvalues[$k] . "',";
         }
-
         $sql_insert .= "'" . $formvalues[($length - 1)] . "');";
       
-
         $query_insert = mysqli_query($conn, $sql_insert);
         if ($query_insert) {
+            $showtime=date("Y-m-d H:i:s");
+            $sql_log = "INSERT INTO logs (`who`,`time`,`table_name`,`operation`,`key_value`) VALUES('root','".$showtime."','".$addtable."','add','".$formvalues[0]."');";
+            mysqli_query($conn, $sql_log);
             // echo "success: " . $sql_insert . "<br>" ;
             echo "<script>";    
             echo  "alert('添加成功');";

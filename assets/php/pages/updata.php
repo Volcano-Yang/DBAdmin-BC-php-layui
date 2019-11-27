@@ -25,30 +25,27 @@ if ($query_addtable) {
             $formvalues[$i] = $_POST[$addtableArr[$i]];
         }
 
-        // UPDATE table_name SET field1=new-value1, field2=new-value2 [WHERE Clause]
-
         //循环拼接字符串
         $sql_insert = "UPDATE ";
         $sql_insert .= $addtable;
         $sql_insert .= " SET ";
         for ($j = 0; $j < ($length - 1); $j++) {
-            $sql_insert .="`" . $addtableArr[$j] . "`='".$formvalues[$j]."', ";
+            $sql_insert .= "`" . $addtableArr[$j] . "`='" . $formvalues[$j] . "', ";
         }
-        $sql_insert .= "`" . $addtableArr[($length - 1)] . "`='".$formvalues[($length - 1)]."' WHERE `".$addid."` ='".$addvalue."';";
+        $sql_insert .= "`" . $addtableArr[($length - 1)] . "`='" . $formvalues[($length - 1)] . "' WHERE `" . $addid . "` ='" . $addvalue . "';";
 
-        echo $sql_insert;
-        echo "<br>";
-        
         $query_insert = mysqli_query($conn, $sql_insert);
         if ($query_insert) {
-            // echo "success: " . $sql_insert . "<br>" ;
-            echo "<script>";    
-            echo  "alert('修改成功');";
-            echo "window.location.href='./databaseList.php?tablename=".$addtable."';";
-            echo "</script>"; 
+            $showtime = date("Y-m-d H:i:s");
+            $sql_log = "INSERT INTO logs (`who`,`time`,`table_name`,`operation`,`key_value`) VALUES('root','" . $showtime . "','" . $addtable . "','update','" . $addvalue . "');";
+            mysqli_query($conn, $sql_log);
+            echo "<script>";
+            // echo  "alert('修改成功');";
+            echo "window.location.href='./databaseList.php?tablename=" . $addtable . "';";
+            echo "</script>";
         } else {
             echo "Error: " . $sql_insert . "<br>" . mysqli_error($query_insert);
-            echo "<a href='./databaseList.php?tablename=".$addtable."'>返回</a>";
+            echo "<a href='./databaseList.php?tablename=" . $addtable . "'>返回</a>";
         }
     }
 } else {
