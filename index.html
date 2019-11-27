@@ -2,21 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>实验三</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>databaseAdmin</title>
+	<!-- <link rel="shortcut icon" href="./assets/images/logo_favicon .ico" /> -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/login.css">
+	<script type="text/javascript" src="./assets/js/vector.js"></script>
+	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+
 </head>
 
 <body>
-    <div>
-        <a href="./assets/php/pages/databaseList.php?tablename=customers">databaseAdmin</a>
-    </div>
 
-    <div>
-        <a href="assets/html/countDay.html">countDay</a>
-    </div>
+	<div id="container">
+		<div id="output">
+			<div class="containerT" style="position: absolute; top: 50%; left: 50%;">
+				<img src="./img/logo4.png" style="width: 100px;">
+				<h1 style="color: #ffffff; font-weight:bold; font-size:large;">databaseAdmin</h1>
+				<form class="form" id="entry_form" action="./assets/php/pages/login.php" method="POST">
+					<input type="text" placeholder="用户名" id="entry_name" name="userName" >
+					<input type="password" placeholder="密码" id="entry_password" name="password">
+					<button type="submit" id="entry_btn">登录</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function () {
+			Victor("container", "output"); //登录背景函数
+			$("#entry_name").focus();
+			$(document).keydown(function (event) {
+				if (event.keyCode == 13) {
+					$("#entry_btn").click();
+				}
+			});
+		});
+	</script>
+
 </body>
 
 </html>
-
