@@ -12,6 +12,7 @@ $addtableArr = array();
 $formvalues = array();
 
 if ($query_addtable) {
+    //查表头
     while ($row = mysqli_fetch_assoc($query_addtable)) {
         $addtableStr = $row['struct'];
     }
@@ -19,13 +20,14 @@ if ($query_addtable) {
 
     $length = count($addtableArr);
 
+    
     if (isset($_POST['submit'])) {
-
+    //接收表单数据
         for ($i = 0; $i < $length; $i++) {
             $formvalues[$i] = $_POST[$addtableArr[$i]];
         }
 
-        //循环拼接字符串
+        //循环拼接字符串，得到mysql插入语句
         $sql_insert = "INSERT INTO ";
         $sql_insert .= $addtable;
         $sql_insert .= " (";
@@ -39,13 +41,15 @@ if ($query_addtable) {
         $sql_insert .= "'" . $formvalues[($length - 1)] . "');";
       
         $query_insert = mysqli_query($conn, $sql_insert);
+
+
         if ($query_insert) {
             $showtime=date("Y-m-d H:i:s");
             $sql_log = "INSERT INTO logs (`who`,`time`,`table_name`,`operation`,`key_value`) VALUES('root','".$showtime."','".$addtable."','add','".$formvalues[0]."');";
             mysqli_query($conn, $sql_log);
             // echo "success: " . $sql_insert . "<br>" ;
             echo "<script>";    
-            echo  "alert('添加成功');";
+            // echo  "alert('添加成功');";
             echo "window.location.href='./databaseList.php?tablename=".$addtable."';";
             echo "</script>"; 
         } else {

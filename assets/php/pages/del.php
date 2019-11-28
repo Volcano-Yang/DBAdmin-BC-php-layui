@@ -14,7 +14,7 @@ if ($query_del){
     mysqli_query($conn, $sql_log);
             
     echo "<script>";    
-    echo  "alert('删除成功');";
+    // echo  "alert('删除成功');";
     echo "window.location.href='./databaseList.php?tablename=".$deltable."';";
     echo "</script>"; 
 }

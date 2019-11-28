@@ -1,5 +1,5 @@
 <?php
-
+//查询表头内容
 $sql_tableHeader = "select * from tableName where `tablename` = '" . $tablename ."';";
 $query_tableHeader = mysqli_query($conn, $sql_tableHeader);
 $tableHeaderStr = "";
@@ -13,10 +13,11 @@ if ($query_tableHeader)
         $tableHeaderStr =$row['struct'];
     }
     $tableHeaderArr=explode(',',$tableHeaderStr);
-
+//动态渲染表头
     for($i=0;$i<count($tableHeaderArr); $i++)
     {
-        $Header .="<th style='text-align: center;vertical-align: middle!important;'>" . $tableHeaderArr[$i] ."</th>";
+        $Header .="<th style='text-align: center;vertical-align: middle!important;'>" .
+         $tableHeaderArr[$i] ."</th>";
     }
     $Header .="<th style='text-align: center;vertical-align: middle!important;'>delete</th>";
     $Header .="<th style='text-align: center;vertical-align: middle!important;'>updata</th>";

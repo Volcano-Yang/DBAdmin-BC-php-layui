@@ -53,9 +53,11 @@ let countDay = (endtimeStr) => {
         s = Math.floor((leftTime - d * 1000 * 60 * 60 * 24) / 1000 % 60);
     }
 
-    document.getElementById("countday").innerHTML = "距离寒假还有：" + d + "天" + h + "小时" + m + "分" + s + "秒";
+    document.getElementById("countday").innerHTML = 
+    "left until the final exam：" + d + "day" + h + "hour" + m + "min" + s + "sec";
 }
 
 let endtimeStr = "2020/1/15 00:00:00";
-getNowDate();
-countDay(endtimeStr);
+setInterval(countDay(endtimeStr), 1000);
+
+getNowDate();1
