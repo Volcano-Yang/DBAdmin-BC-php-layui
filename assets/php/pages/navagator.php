@@ -6,8 +6,9 @@
         if ($query_tables)
         {
             while ($row = mysqli_fetch_assoc($query_tables)) {
-                $page_banner .= "<dd><a href='" . $_SERVER['PHP_SELF'] . " ?tablename=" . $row['tableName'] . " '>" . $row['tableName'] . "</a></dd>";
-                }
+                // $page_banner .= "<dd><a href='" . $_SERVER['PHP_SELF'] . " ?tablename=" . $row['tableName'] . " '>" . $row['tableName'] . "</a></dd>";
+                $page_banner .= "<dd><a href='./databaseList.php?tablename=" . $row['tableName'] . " '>" . $row['tableName'] . "</a></dd>";    
+            }
         }
         else{
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
